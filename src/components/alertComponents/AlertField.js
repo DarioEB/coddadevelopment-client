@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-// 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
 const AlertFieldContent = styled.div`
     width: 100%;
     text-align: left;
