@@ -22,6 +22,8 @@ const Home = () => {
     }, []);
 
     const projects = useSelector( state => state.projects.projects);
+
+    // eslint-disable-next-line
     const loadprojects = useSelector(state => state.projects.loadprojects);
 
     if(projects.length === 0 ) return null;
