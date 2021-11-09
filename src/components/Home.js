@@ -26,27 +26,41 @@ const Home = () => {
     // eslint-disable-next-line
     const loadprojects = useSelector(state => state.projects.loadprojects);
 
-    // if(projects.length === 0) return null;
+   
 
     return (
         <Fragment>
             <HomeComponent />
             <Element name="description">
-                <DescriptionComponent />
+                <DescriptionComponent 
+                    title={"Soluciones web y móviles"}
+                    span={"desarrollo de software"}
+                />
             </Element>
             <Element name="services">
-                <ServicesComponent />
+                <ServicesComponent 
+                    title={"Servicios"}
+                    span={"innovación y calidad"}
+                />
             </Element>
-            <Element name="projects">
+            <Element name="portfolio">
                 <PortfolioComponent 
                     projects={projects}
+                    title={"Portafolio"}
+                    span={"nuestra experiencia en el desarrollo"}
                 />
             </Element>
             <Element name="about">
-                <AboutComponent />
+                <AboutComponent 
+                    title={"Nosotros"}
+                    span={"concepto codda"}
+                />
             </Element>
             <Element name="contact">
-                <ContactComponent />
+                <ContactComponent 
+                    title={"Contacto"}
+                    span={"Atención 24/7 por todos los medios"}
+                />
             </Element>
         </Fragment>
     );

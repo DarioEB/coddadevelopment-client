@@ -67,7 +67,7 @@ const HomeComponent = () => {
 
     return (
         <section className="back-home">
-            <div className="section m-height-100 film">
+            <div className="section m-height-100 film-home">
                 <div className="container" >
                     <HomeComponentContent
                     >

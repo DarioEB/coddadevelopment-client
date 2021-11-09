@@ -37,6 +37,7 @@ const AboutButtons = styled.div`
             border: none;
             color: #fff;
             font-size: 1.5rem;
+            padding: 1rem 1.5rem;
             font-family: var(--audiowide);
             @media (min-width: 768px) {
                 font-size: 1.75rem;
@@ -53,12 +54,12 @@ const AboutButtons = styled.div`
                 background: var(--gradient);
             }
         }
-        button.active {
+        /* button.active {
             position: relative;
             &::before {
                 width: 100%;
             }
-        }
+        } */
     `
 
 const Descriptions = styled.div`
@@ -69,16 +70,23 @@ const Descriptions = styled.div`
         to {
             opacity: 1;
         }
-    }
+    }animation-name: fadediv;
+        animation-duration: 1.33s;
+        animation-fill-mode: forwards;
+        
     div {
+        padding: 2rem;
         opacity: 0;
         animation-name: fadediv;
         animation-duration: 1.33s;
         animation-fill-mode: forwards;
+        display: flex;
+        flex-direction: column;
         p {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             color: #fff;
             line-height: 1.5;
+            margin: 0;padding: 0;
             @media (min-width: 768px) {
                 font-size: 1.75rem;
             }
@@ -86,12 +94,16 @@ const Descriptions = styled.div`
     }
     div.active {
         border-radius: .5rem;
-        padding: 1rem;
-        border-left: .1rem solid var(--lBlue);
+        border-left: .1rem solid var(--lBlue);animation-name: fadediv;
+        animation-duration: 1.33s;
+        animation-fill-mode: forwards;
+        transition: all .33s ease-out;
     }
 `
 
-const AboutComponent = () => {
+const AboutComponent = ({
+    title, span
+}) => {
 
     const [aboutcomponent, setAboutComponent] = useState('mision');
 
@@ -101,17 +113,19 @@ const AboutComponent = () => {
                 <div className="container">
                     <AboutContainer>
                         <TitleH2>
-                            Nosotros
-                            <span>innovación y calidad.</span>
+                            {title}
+                            <span>
+                                {span}
+                            </span>
                         </TitleH2>
                         <AboutDescription>
                             <AboutButtons>
                                 <button
-                                    className={`${aboutcomponent === 'mision' ? 'active' : ''}`}
+                                    className={` ${aboutcomponent === 'mision' ? 'active shadow not-width' : ''}`}
                                     onClick={() => setAboutComponent('mision')}
                                 >Nuestra Misión</button>
                                 <button
-                                    className={`${aboutcomponent === 'vision' ? 'active' : ''}`}
+                                    className={`${aboutcomponent === 'vision' ? 'active shadow not-width ' : ''}`}
                                     onClick={() => setAboutComponent('vision')}
                                 >Nuestra Visión</button>
                             </AboutButtons>

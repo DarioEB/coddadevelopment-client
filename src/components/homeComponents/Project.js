@@ -4,21 +4,22 @@ import styled from '@emotion/styled';
 
 const ProjectContainer = styled.article`
     min-height: 35vh;
-    border: .1rem solid var(--blue);
     border-radius: .5rem;
     padding: 2rem;
     position: relative;
+    border: .01rem solid #425a6e;
     .back-image {
         position: absolute;
         z-index: 10;
         height: 100%;
         margin: 0 auto;
         width: 35%;
-        top: 0%;
+        top: 2.5%;
         left: calc(50% - calc(35% / 2));
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+
         opacity: 0.55;
     }
 `
@@ -35,13 +36,10 @@ const ProjectContent = styled.div`
 
 const ProjectContentHeader = styled.div`
     display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-
-        .link-project {
-            font-size: 1.5rem;
-        }
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
 `
 
 const ProjectContentDescription = styled.div`
@@ -81,7 +79,8 @@ const Project = ({ project }) => {
                         href={`${project.url}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="link-project text-gradient"
+                        className="link-project text-gradient shadow"
+
                     >
                         <i
                             className="fas fa-link"
@@ -89,7 +88,7 @@ const Project = ({ project }) => {
                     </a>
                     <Link
                         to={`/`}
-                        className="link-project text-gradient"
+                        className="link-project text-gradient shadow"
                     >
                         <i className="fas fa-folder"></i>
                     </Link>

@@ -20,7 +20,9 @@ const ContactContent = styled.div`
     }
 `
 
-const ContactComponent = () => {
+const ContactComponent = ({
+    title, span
+}) => {
 
     return (
         <section className="section m-height-100 section-contact" id="contact">
@@ -29,8 +31,10 @@ const ContactComponent = () => {
                 <div className="container">
                     <ContactContainer>
                         <TitleH2>
-                            Contacto
-                            <span>Conoce de nuestra experiencia diseño y desarrollando software.</span>
+                            {title}
+                            <span>
+                                {span}
+                            </span>
                         </TitleH2>
                         <ContactContent>
                             <ContactInformation />

@@ -1,13 +1,16 @@
 import {
     SEND_MESSAGE,
     SEND_MESSAGE_SUCCESS,
-    SEND_MESSAGE_ERROR
+    SEND_MESSAGE_ERROR,
+    CLEAN_FORM_CONTACT
 } from '../types';
 
 const initialState = {
     loadmessage: null,
     errormessage: null,
-    message: ''
+    message: '',
+    clean: null,
+    
 }
 
 const contactReducer = (state = initialState, action) => {
@@ -22,6 +25,7 @@ const contactReducer = (state = initialState, action) => {
                 ...state,
                 loadmessage: false,
                 errormessage: true,
+                clean: true,
                 message: action.payload.message
             }
         case SEND_MESSAGE_ERROR:
@@ -30,6 +34,12 @@ const contactReducer = (state = initialState, action) => {
                 loadmessage: false,
                 errormessage: false
             }
+        case CLEAN_FORM_CONTACT: 
+            return {
+                ...state,
+                clean: null
+            }
+        
         default:
             return state;
     }

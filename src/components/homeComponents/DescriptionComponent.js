@@ -48,7 +48,10 @@ const Description = styled.div`
     }
 `
 
-const DescriptionComponent = () => {
+const DescriptionComponent = ({
+    title,
+    span
+}) => {
 
     return (
         <section className="section m-height-100 section-description">
@@ -57,9 +60,9 @@ const DescriptionComponent = () => {
             <div className="container">
                 <DescriptionComponentContent>
                     <TitleH2>
-                        Soluciones Web y Móviles
+                        {title}
                         <span>
-                            It has survived not only five centuries
+                            {span}
                         </span>
                     </TitleH2>
                     <Description>
@@ -81,7 +84,8 @@ const DescriptionComponent = () => {
                                 <li><p className="text-gradient">Sitios Web / E-commerce.</p></li>
                                 <li><p className="text-gradient">Aplicaciones Web.</p></li>
                                 <li><p className="text-gradient">Aplicaciones Móviles.</p></li>
-                                <li><p className="text-gradient">Aplicaciones basadas en la nube (Cloud Apps).</p></li>
+                                <li><p className="text-gradient">Servicios y aplicaciones Cloud.</p></li>
+                                <li><p className="text-gradient">CMS</p></li>
                                 <li><p className="text-gradient">Bases de datos.</p></li>
                             </ul>
                         </div>

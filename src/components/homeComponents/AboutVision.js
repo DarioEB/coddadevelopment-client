@@ -3,7 +3,7 @@ import React from 'react';
 const AboutVision = () => {
 
     return (
-        <div className="active">
+        <div className="active shadow not-width">
             <p>
                 Trabajando en conjunto y estableciendo relaciones a largo
                 plazo con nuestros clientes aportamos valor a su negocio

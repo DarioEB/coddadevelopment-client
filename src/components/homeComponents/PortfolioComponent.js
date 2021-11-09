@@ -3,12 +3,7 @@ import styled from '@emotion/styled';
 import {
     TitleH2
 } from '../UI/ui';
-// // Imagenes
-// import chocolate1 from '../../images/chocolate1.png';
-// import sztynka1 from '../../images/sztynka1.png';
-// import cripto1 from '../../images/cripto1.png';
-// import freegame1 from '../../images/freegame1.png';
-// import kozlo1 from '../../images/kozlo2.png';
+
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
@@ -30,16 +25,8 @@ const PorfolioComponentContent = styled.div`
 `
 
 
-const PortfolioComponent = ({projects}) => {
-
-    // const projects = [
-    //     {name: 'Moteles Chocolate', url: 'moteleschocolate.com.ar', image: chocolate1},
-    //     {name: 'Sztynka Barbero', url: 'sztynkabarbero.com', image: sztynka1},
-    //     {name: 'Cripto webapp', url: 'criptoapp.online', image: cripto1},
-    //     {name: 'Freegame', url: 'freegameapp.online', image: freegame1},
-    //     {name: 'Kozlo', url: 'kozlohombres.com', image: kozlo1}
-    // ]
-
+const PortfolioComponent = ({projects, title, span}) => {
+    
     return (
         <section className="section m-height-100 section-portfolio" id="portfolio">
             <span className="span-section-portfolio">
@@ -49,8 +36,10 @@ const PortfolioComponent = ({projects}) => {
                 <div className="container">
                     <PorfolioComponentContent>
                         <TitleH2>
-                            Proyectos
-                            <span>Conoce de nuestra experiencia diseño y desarrollando software.</span>
+                            {title}
+                            <span>
+                                {span}
+                            </span>
                         </TitleH2>
                         <Swiper
                             slidesPerView={1}
@@ -58,6 +47,7 @@ const PortfolioComponent = ({projects}) => {
                             autoplay={true}
                             navigation={true}
                             loop={true}
+                            centeredSlides={true}
                             breakpoints={{
                                 "768": {
                                     "slidesPerView": 3,

@@ -44,6 +44,26 @@ a {
 img {
   width: 100%;
 }
+.shadow{
+  box-shadow: .12rem .12rem .1rem .12rem var(--blue) inset;
+  border-radius: .5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.75rem;
+  display: flex;align-items:center;
+  justify-content: center;
+}
+.shadow.not-width {
+  width: auto;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .shadow {
+    width: 4.25rem;
+    font-size: 2.25rem;
+    height: 4.25rem;
+  }
+}
 .m-height-100 {
   min-height: 100vh;
 }
@@ -66,6 +86,12 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 4rem 0;
+}
+@media (min-width: 768px) {
+  .section {
+    padding: 0;
+  }
 }
 
 .section-description,
@@ -164,17 +190,28 @@ img {
   margin: 0 auto;
 }
 .film {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 
 /**** HomeComponent ****/
 .back-home {
   min-height: 100vh;
-  background-image: url('./images/bann.jpg');
+  background-image: url('./images/bann-mobile.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+@media (min-width: 768px) {
+  .back-home {
+    background-image: url('./images/bann-desktop.jpg');
+  }
+}
+
+.film-home {
+  background-color: rgba(0, 0, 0, 0.55);
+  /* backdrop-filter: blur(2px); */
+  /* -webkit-backdrop-filter: blur(2px); */
 }
 
 /*** MobileMenu ***/
@@ -280,10 +317,80 @@ img {
   line-height: 1;
 }
 
+
 /**** AboutComponent *****/
 .back-about {
-  background-image: url('./images/bann-min.jpg');
+  background-image: url('./images/space.jpg');
   background-position: center center;
   background-size: cover;
   margin: 12.5vh 0;
+}
+
+/*** Swal class ***/
+.s-container {
+  width: 100% !important;
+  max-width: 486px !important;
+  margin: 0 auto !important;
+  border: .01rem solid var(--blue) !important;
+}
+.s-title {
+  font-size: 2.5rem !important;
+  color: #fff !important;
+  text-transform: uppercase !important;
+  font-family: var(--audiowide) !important;
+}
+.s-text {
+  font-size: 1.75rem !important;
+  color: #fff !important;
+  font-family: var(--audiowide) !important;
+}
+.s-btn {
+  font-size: 1.5rem !important;
+  background-color: transparent !important;
+  border: none !important;
+  background: var(--gradient) !important;
+  color: #000 !important;
+  font-weight: 600;
+  outline: none !important;
+  font-family: var(--audiowide) !important;
+}
+@media (min-width: 768px) {
+  .s-text {
+    font-size: 2rem !important;
+  }
+  
+  .s-btn {
+    font-size: 1.75rem !important;
+    
+  }
+}
+
+/*** Spinner ****/
+.spinner {
+  width: 8rem;
+  height: 8rem;
+  margin: 100px auto;
+  background: var(--gradient);
+  border-radius: 100%;  
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
 }

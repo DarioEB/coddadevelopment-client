@@ -4,13 +4,15 @@ import {
     BtnContact
 } from '../UI/ui';
 import AlertField from '../alertComponents/AlertField';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { sendMessageAction } from '../../actions/contactActions';
+import Loader from '../layout/Loader';
 const ContactFormContainer = styled.div`
     
     form {
         display: flex;
         flex-direction: column;
+
         gap: 1rem;
         @media (min-width: 768px) {
             gap: 2rem;
@@ -35,9 +37,11 @@ const FieldContact = styled.div`
     textarea,
     select {
         background-color: rgba(255, 255, 255, 0.1);
+        
         border: .1rem solid #000;
         /* outline-color: var(--lBlue); */
-        outline: .1rem solid var(--blue);
+        outline: .01rem solid #425a6e;
+        border-radius: .5rem;
         padding: 1rem;
         font-size: 1.5rem;
         
@@ -48,12 +52,46 @@ const FieldContact = styled.div`
         transition: all .33s ease-in;
         &:focus {
             background-color: rgba(255, 255, 255, 0.15);
+            background: none;
+            outline: .01rem solid var(--blue);
         }
     }
     textarea {
         min-height: 10rem;
         resize: none;
     }
+`
+
+const ContactPhoneBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+
+    .btn-contact-phone {
+        width: 5rem;
+        height: 2.5rem;
+        border-radius: 2rem;
+        position: relative;
+        background-color: rgba(255, 255, 255, .15);
+        transition: all .33s ease-out;
+        span {
+            position: absolute;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: var(--lBlue);
+            top: 0%;
+            border: .15rem solid var(--lBlue);
+            transition: all .33s ease-out;
+            right: 3rem;
+        }
+        span.not {
+            right: 0;
+            background-color: var(--g);
+        }
+    }
+    
 `
 
 function validation(values) {
@@ -80,18 +118,20 @@ function validation(values) {
 
 const ContactForm = () => {
 
-    const [contact, setContact] = useState({
-        name: '',
-        phone: '',
-        contact_phone: false,
-        email: '',
-        subject: '',
-        message: ''
-    });
+    
 
     const [errors, setErrors] = useState({});
-
+    const [contact, setContact] = useState({
+            name: '',
+            phone: '',
+            contact_phone: false,
+            email: '',
+            subject: '',
+            message: ''
+    })
     const dispatch = useDispatch();
+    // const clean = useSelector( state => state.contact.clean);
+    const loadmessage = useSelector(state => state.contact.loadmessage);
     
 
     const handleChange = e => {
@@ -154,9 +194,22 @@ const ContactForm = () => {
         const noErrors = Object.keys(getErrors).length === 0;
         if(noErrors) {
             dispatch( sendMessageAction(contact) );
+            setContact({
+                    name: '',
+                    phone: '',
+                    contact_phone: false,
+                    email: '',
+                    subject: '',
+                    message: ''
+            })
         }
     }
 
+    
+
+    if(loadmessage) {
+        return <Loader />
+    }
     return (
         <ContactFormContainer>
             <form
@@ -179,13 +232,35 @@ const ContactForm = () => {
                 <FieldContact>
                     <label 
                         className="text-gradient"
-                        htmlFor="phone">Teléfono</label>
+                        htmlFor="phone"
+                    >Teléfono</label>
                     <input 
                         type="tel"
                         id="phone"
                         name="phone"
                         value={contact.phone}
+                        onChange={handleChange}
                     />
+                    <ContactPhoneBox>
+                        <label
+                            className="text-gradient"
+                        >Deseo que me contacten por teléfono</label>
+                        <div 
+                            className="btn-contact-phone"
+                            onClick={ e => {
+                                    e.preventDefault();
+                                    setContact({
+                                        ...contact,
+                                        contact_phone: !contact.contact_phone
+                                    });
+                                }}
+                            >
+                            <span
+                                type="button"
+                                className={`${!contact.contact_phone ? 'not' : ''}`}
+                            ></span>
+                        </div>
+                    </ContactPhoneBox>
                 </FieldContact>
                 <FieldContact>
                     <label 

@@ -25,10 +25,15 @@ const FooterForm = styled.form`
                 flex: 1;
                 height: 4rem;
                 background-color: rgba(255, 255, 255, 0.1);
+        
                 border: .1rem solid #000;
-                outline: .1rem solid var(--blue);
+                /* outline-color: var(--lBlue); */
+                outline: .01rem solid #425a6e;
+                border-top-left-radius: .5rem;
+                border-bottom-left-radius: .5rem;
                 padding: 1rem;
                 font-size: 1.25rem;
+                
                 @media (min-width: 768px) {
                     font-size: 1.5rem;
                 }
@@ -36,18 +41,22 @@ const FooterForm = styled.form`
                 transition: all .33s ease-in;
                 &:focus {
                     background-color: rgba(255, 255, 255, 0.15);
+                    background: none;
+                    outline: .01rem solid var(--blue);
                 }
             }
             .btn-news {
                 flex: 0 0 4rem;
-                height: calc(4rem + .2rem);
+                height: calc(4rem + .1rem);
                 background: var(--gradient);
                 border-right: .1rem solid var(--lBlue);
                 border-top: .1rem solid var(--lBlue);
                 border-bottom: .1rem solid var(--lBlue);
                 border-left: none;
                 font-size :2.5rem;
-                border-radius: 0;
+                border-top-right-radius: .5rem;
+                border-bottom-right-radius: .5rem;
+                
             }
         }
     }

@@ -9,9 +9,12 @@ const FooterContainer = styled.div`
     width: 95%;
     margin: 0 auto;
     display: grid;
+    position: relative;
+    z-index: 30;
     gap: 2rem;
     @media (min-width: 768px) {
         gap: 0;
+    padding: 2rem 0;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 `
@@ -34,7 +37,7 @@ const Footer = () => {
 
     const links = [
         {name: 'Servicios', route: 'services'},
-        {name: 'Proyectos', route: 'projects'},
+        {name: 'Portafolio', route: 'portfolio'},
         {name: 'Contacto', route: 'contact'},
         {name: 'Sobre CODDA', route: 'about'}
     ]

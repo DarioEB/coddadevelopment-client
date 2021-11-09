@@ -19,11 +19,14 @@ const Services = styled.div`
     }
 `
 
-const ServicesComponent = () => {
+const ServicesComponent = ({
+    title,
+    span
+}) => {
 
     const services = [
         {
-            title: 'Sitios Web / E-Commerces',
+            title: 'Sitios Web / E-Commerce',
             icons: ['fas fa-store', 'fas fa-laptop-code'],
             text: 'Desarrollo y diseño de sitios web, menús QR, e-Commerce y catálogos online, adaptables a todos los dispositivos.'
         },
@@ -42,6 +45,11 @@ const ServicesComponent = () => {
             icons: ["fas fa-cloud-upload-alt"],
             text: 'Asesoramiento integral para la contratación de los servicios en la nube necesarios para tu sitio web o aplicación (Google Cloud, Heroku, AWS).'
         },
+        {
+            title: 'CMS',
+            icons: ['fas fa-file-export'],
+            text: 'Desarrollo de administrador de contenidos para ofrecer un alto rendimiento y escalabilidad con diseño 100% personalizados y responsivos.'
+        },
         { 
             title: 'Bases de datos', 
             icons: ['fas fa-server', 'fas fa-database'],
@@ -56,9 +64,9 @@ const ServicesComponent = () => {
                 <div className="container">
                     <ServicesComponentContent>
                         <TitleH2>
-                            Servicios
+                            {title}
                             <span>
-                                It has survived not only five centuries
+                                {span}
                             </span>
                         </TitleH2>
                         <Services>

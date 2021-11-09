@@ -8,8 +8,9 @@ const CService = styled.article`
     flex-direction: column;
     gap: 1rem;
     width: 95%;
-    border: .1rem solid var(--blue);
+    border: .01rem solid #425a6e;
     padding: 2rem 1rem;
+    border-radius: .5rem;
     margin: 0 auto;
     position: relative;
     z-index: 10;
@@ -26,21 +27,7 @@ const CService = styled.article`
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            i {
-                width: 4.25rem;
-                height: 4.25rem;
-                box-shadow: .12rem .12rem .1rem .12rem var(--blue) inset;
-                 border-radius: .5rem;
-                /* border: .1rem solid var(--blue); */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                
-                font-size: 2.25rem;
-                @media (min-width: 768px) {
-                    font-size: 2.5rem;
-                }
-            }
+            
         }
         .content-service_text {
             p {
@@ -71,7 +58,7 @@ const Service = ({service}) => {
                     {service.icons.map((icon, i) => (
                         <i
                             key={i}
-                            className={`${icon} text-gradient`}
+                            className={`${icon} text-gradient shadow`}
                         ></i>
                     ))}
                 </div>

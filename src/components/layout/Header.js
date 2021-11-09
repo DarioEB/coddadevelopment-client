@@ -44,7 +44,7 @@ const Header = () => {
     const [menu, setMenu] = useState(false);
     const links = [
         {name: 'Servicios', route: 'services'},
-        {name: 'Proyectos', route: 'projects'},
+        {name: 'Portafolio', route: 'portfolio'},
         {name: 'Sobre COODA', route: 'about'},
         {name: 'Contacto', route: 'contact'}
     ]
