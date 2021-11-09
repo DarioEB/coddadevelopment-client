@@ -32,8 +32,7 @@ const sendMessageSuccess = (response) => ({
 });
 
 const sendMessageError = (err) => ({
-    type: SEND_MESSAGE_ERROR,
-    payload: err.response.data
+    type: SEND_MESSAGE_ERROR
 });
 
 export function sendEmailAction(newsletter) {
@@ -43,7 +42,7 @@ export function sendEmailAction(newsletter) {
             const response = await client.post('/api/contact/newsletter', newsletter);
             dispatch( sendEmailSuccess(response));
         } catch (err) {
-            dispatch(sendEmailError(err));
+            dispatch( sendEmailError(err) );
         }
     }
 }
@@ -58,6 +57,5 @@ const sendEmailSuccess = (response) => ({
 });
 
 const sendEmailError = (err) => ({
-    type: SEND_EMAIL_ERROR,
-    payload: err.response.data
+    type: SEND_EMAIL_ERROR
 })

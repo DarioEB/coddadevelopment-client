@@ -26,7 +26,7 @@ const Home = () => {
     // eslint-disable-next-line
     const loadprojects = useSelector(state => state.projects.loadprojects);
 
-    if(projects.length === 0 ) return null;
+    // if(projects.length === 0) return null;
 
     return (
         <Fragment>

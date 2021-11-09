@@ -27,7 +27,6 @@ const contactReducer = (state = initialState, action) => {
         case SEND_MESSAGE_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
                 loadmessage: false,
                 errormessage: false
             }

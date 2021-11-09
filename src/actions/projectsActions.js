@@ -29,6 +29,5 @@ const getProjectsSuccess = (response) => ({
 });
 
 const getProjectsError = (error) => ({
-    type: GET_PROJECTS_ERROR,
-    payload: error.response.data
+    type: GET_PROJECTS_ERROR
 })
