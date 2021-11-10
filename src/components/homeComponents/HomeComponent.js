@@ -78,7 +78,7 @@ const HomeComponent = () => {
                             />
                             <h1>
                                 CODDA
-                                <span>development</span>
+                                {/* <span>development</span> */}
                             </h1>
                         </LogoHome>
                         <DescriptionHome>
