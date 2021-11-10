@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import HeaderLogo from '../../images/icono-codda.png'
+import HeaderLogo from '../../images/icono-codda2.png'
 import { BtnContact } from '../UI/ui';
 import { Link } from 'react-router-dom';
 const HomeComponentContent = styled.div`
