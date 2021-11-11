@@ -15,6 +15,8 @@ const Home = () => {
 
     const dispatch = useDispatch();
 
+    
+
     useEffect( () => {
         const downloadProjects = () => dispatch( getProjectsAction() );
         downloadProjects();

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { scroller } from 'react-scroll'
-
+import { handleScroll } from '../../helpers/helpers';
 const NavHeaderContent = styled.nav`
     display: none;
 
@@ -41,16 +40,14 @@ const NavHeaderContent = styled.nav`
     }
 `
 
-const NavHeader = ({links, scrollType}) => {
-
-    
+const NavHeader = ({links}) => {
 
     return (
         <NavHeaderContent>
             {links.map( (link, i) => (
                 <span
                     key={i}
-                    onClick={() => scroller.scrollTo(link.route, scrollType)}
+                    onClick={() => handleScroll(link.route)}
                     className="nav-link"
                 >
                     {link.name}

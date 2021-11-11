@@ -1,12 +1,12 @@
 import React from 'react';
-import { scroller } from 'react-scroll'
-const MobileMenu = ({menu, links, scrollType, setMenu}) => {
+import { handleScroll } from '../helpers/helpers';
+const MobileMenu = ({menu, links, setMenu}) => {
 
-    const handleScroll = (route) => {
-        scroller.scrollTo(route, scrollType);
+    const handleClick = (route) => {
+        handleScroll(route);
         setMenu(!menu);
     }
-
+    
     return (
         <section className={`mobile-menu ${menu && 'show-mobile-menu'}`}>
             <div className="content-mobile-menu">
@@ -14,7 +14,7 @@ const MobileMenu = ({menu, links, scrollType, setMenu}) => {
                     {links.map( (link, i) => (
                         <span
                             key={i}
-                            onClick={() => handleScroll(link.route)}
+                            onClick={() => handleClick()}
                             className="link"
                         >
                             {link.name}

@@ -10,3 +10,5 @@ export const CLEAN_FORM_CONTACT = 'CLEAN_FORM_CONTACT'
 export const SEND_EMAIL = 'SEND_EMAIL';
 export const SEND_EMAIL_SUCCESS = 'SEND_EMAIL_SUCCESS';
 export const SEND_EMAIL_ERROR = 'SEND_EMAIL_ERROR';
+
+export const GET_LINKS = 'GET_LINKS';

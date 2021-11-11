@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import FooterLogo from './footerComponents/FooterLogo';
 import FooterNavigation from './footerComponents/FooterNavigation';
 import FooterSocialMedia from './footerComponents/FooterSocialMedia';
 import FooterNewsletter from './footerComponents/FooterNewsletter';
-
+import { getLinksAction } from '../../actions/helperActions';
+import { useDispatch, useSelector } from 'react-redux';
 const FooterContainer = styled.div`
     width: 95%;
     margin: 0 auto;
@@ -33,14 +34,18 @@ const FooterCopy = styled.div`
     }
 `
 
-const Footer = () => {
+const Footer = () => {  
 
-    const links = [
-        {name: 'Servicios', route: 'services'},
-        {name: 'Portafolio', route: 'portfolio'},
-        {name: 'Contacto', route: 'contact'},
-        {name: 'Sobre CODDA', route: 'about'}
-    ]
+    const dispatch = useDispatch();
+    const links = useSelector( state => state.helper.links);
+
+    useEffect(() => {
+        const downloadLinks = () => dispatch( getLinksAction() );
+        downloadLinks();
+        // eslint-disable-next-line  
+    }, []);
+
+
 
     return (
         <>

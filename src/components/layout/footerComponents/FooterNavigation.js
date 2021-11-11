@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { FooterContentLinks } from '../../UI/ui';
-import { scroller } from 'react-scroll';
+import { handleScroll } from '../../helpers/helpers';
 const FooterNavigationNav = styled.nav`
     display: flex;
     flex-direction: column;
@@ -39,15 +39,9 @@ const FooterNavigationNav = styled.nav`
 
 const FooterNavigation = ({links}) => {
 
-    const scrollType = {
-        duration: 333,
-        delay: 33,
-        smooth: true,
-        offset: -10
-    }
-
-    const handleScroll = (route) => {
-        scroller.scrollTo(route, scrollType);
+   
+    const handleClick = (route) => {
+        handleScroll(route);
     }
 
     return (
@@ -58,7 +52,7 @@ const FooterNavigation = ({links}) => {
                     <span
                         key={i}
                         // to={`/${link.route}`}
-                        onClick={() => handleScroll(link.route)}
+                        onClick={() => handleClick(link.route)}
                         className="footer-link text-gradient"
                     >
                         {link.name}

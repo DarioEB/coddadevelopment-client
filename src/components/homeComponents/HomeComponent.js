@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import HeaderLogo from '../../images/icono-codda2.png'
 import { BtnContact } from '../UI/ui';
 import { Link } from 'react-router-dom';
+import { handleScroll } from '../helpers/helpers';
 const HomeComponentContent = styled.div`
     display: flex;
     flex-direction: column;
@@ -27,10 +28,8 @@ const LogoHome = styled.div`
             width: 10rem;
         }
         h1 {
-            background: var(--gradient);
+            /* background: var(--gradient); */
             margin: 0;padding: 0;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             font-family : var(--audiowide);
             font-size: 5.25rem;
             @media (min-width: 768px) {
@@ -76,7 +75,7 @@ const HomeComponent = () => {
                                 src={HeaderLogo}
                                 alt="Logotipo"
                             />
-                            <h1>
+                            <h1 className="text-gradient">
                                 CODDA
                                 {/* <span>development</span> */}
                             </h1>
@@ -95,7 +94,8 @@ const HomeComponent = () => {
                         </DescriptionHome>
                         <BtnContact>
                             <Link
-                                to="/contact"
+                                to="/"
+                                onClick={() => handleScroll('contact')}
                             >
                                 <span className="_text">Contactate</span>
                                 <span className="_back"></span>

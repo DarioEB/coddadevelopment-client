@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 // HeaderComponent
 import LogoHeader from './headerComponents/LogoHeader';
 import NavHeader from './headerComponents/NavHeader';
 import MenuButton from './headerComponents/MenuButton';
 import MobileMenu from './MobileMenu';
+// Helper Action
+import { getLinksAction} from '../../actions/helperActions';
+import {useDispatch, useSelector} from 'react-redux';
 
 const HeaderContainer = styled.header`
     position: fixed;
@@ -34,20 +37,19 @@ const HeaderContent = styled.div`
 
 const Header = () => {
 
-    const scrollType = {
-        duration: 333,
-        delay: 33,
-        smooth: true,
-        offset: -10
-    }
-
     const [menu, setMenu] = useState(false);
-    const links = [
-        {name: 'Servicios', route: 'services'},
-        {name: 'Portafolio', route: 'portfolio'},
-        {name: 'Sobre COODA', route: 'about'},
-        {name: 'Contacto', route: 'contact'}
-    ]
+
+    const dispatch = useDispatch();
+    const links = useSelector(state => state.helper.links);
+    
+    useEffect( () => {
+        const downloadLinks = () => dispatch(getLinksAction());
+        downloadLinks();
+        // eslint-disable-next-line
+    }, []);
+
+    if(links.length === 0) return null;
+    
     return (
         <HeaderContainer>
             <Container>
@@ -57,7 +59,6 @@ const Header = () => {
                     />
                     <NavHeader 
                         links={links}
-                        scrollType={scrollType}
                     />
                     <MenuButton 
                         menu={menu}
@@ -68,7 +69,6 @@ const Header = () => {
             <MobileMenu 
                 menu={menu}
                 links={links}
-                scrollType={scrollType}
                 setMenu={setMenu}
             />
         </HeaderContainer>
